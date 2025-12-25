@@ -1,11 +1,10 @@
 import java.util.*;
 
-public class solution {
+public class solution2 {
     public static void main(String[] args) {
         try (Scanner sc = new Scanner(System.in)) {
             int pos = 50;
-            int count = 0;
-
+            long count = 0;
             while (sc.hasNextLine()) {
                 String line = sc.nextLine().trim();
                 if (line.isEmpty()) continue;
@@ -13,20 +12,22 @@ public class solution {
                 char dir = line.charAt(0);
                 int dist = Integer.parseInt(line.substring(1));
 
-                if (dir == 'R') {
-                    pos = (pos + dist) % 100;
-                } else if (dir == 'L') {
-                    pos = (pos - dist) % 100;
-                    if (pos < 0) pos += 100;  
-                }
+                for (int i = 0; i < dist; i++) {
+                    if (dir == 'R') {
+                        pos = (pos + 1) % 100;
+                    } else {
+                        pos = (pos - 1 + 100) % 100;
+                    }
 
-                if (pos == 0) {
-                    count++;
+                    if (pos == 0) {
+                        count++;
+                    }
                 }
             }
 
             System.out.println(count);
         } catch (NumberFormatException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
