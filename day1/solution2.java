@@ -27,7 +27,6 @@ public class solution2 {
 
             System.out.println(count);
         } catch (NumberFormatException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
